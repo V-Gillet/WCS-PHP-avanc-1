@@ -12,24 +12,18 @@
 
     <?php
 
-    $firstname = $_POST['user_firstname'];
-    $lastname = $_POST['user_lastname'];
-    $email = $_POST['user_email'];
-    $phoneNumber = $_POST['user_phone'];
-    $subject = $_POST['subject-selector'];
-    $message = $_POST['user_message'];
-
-    echo 'Merci ' . $firstname . ' ' . $lastname . ' de nous avoir contacté à propos de ' . $subject . '.';
+    $contact = array_map('trim', $_POST);
+    echo 'Merci ' . $contact['user_firstname'] . ' ' . $$contact['user_lastname'] . ' de nous avoir contacté à propos de ' . $contact['subject-selector'] . '.';
     ?>
     <br>
     <br>
     <?php
-    echo 'Un de nos conseiller vous contactera soit à l\'adresse ' . $email . ' ou par téléphone au ' . $phoneNumber . ' dans les plus brefs délais pour traiter votre demande :';
+    echo 'Un de nos conseiller vous contactera soit à l\'adresse ' . $contact['user_email'] . ' ou par téléphone au ' . $contact['user_phone'] . ' dans les plus brefs délais pour traiter votre demande :';
     ?>
     <br>
     <br>
     <?php
-    echo $message;
+    echo $contact['user_message'];
     ?>
 
 </body>
